@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# 旅ジョーズ
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 環境構築資料
 
-## Available Scripts
+### 1. 必要条件
 
-In the project directory, you can run:
+- **Node.js**: バージョン20以上  
+- **npm**: バージョン10以上
 
-### `npm start`
+```bash
+> node -v
+v20.17.0
+> npm -v
+10.8.2
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. プロジェクトのクローン
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+プロジェクトのクローンを行います。
 
-### `npm test`
+```bash
+git clone https://github.com/ryomeblog/tabi-jaws.git
+cd tabi-jaws
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. 依存関係のインストール
 
-### `npm run build`
+依存関係を解決します。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm ci --legacy-peer-deps
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> **Note:** `npm ci`コマンドは`package-lock.json`に従ってクリーンインストールを行うため、依存関係のバージョンの整合性が保証されます。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. 開発サーバーの起動
 
-### `npm run eject`
+依存関係のインストールが完了したら、開発サーバーを起動します。
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 正常に起動すると、ブラウザが自動的に`http://localhost:3000`で開発用アプリケーションを表示します。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 5. ディレクトリ構成
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+プロジェクトの基本的なディレクトリ構成は以下の通りです。
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+tabi-jaws/
+├── public/               # 静的ファイル
+├── src/                  # ソースコード
+│   ├── components/       # コンポーネント
+│   ├── pages/            # 各ページ
+│   ├── index.js          # エントリーポイント
+│   └── ...
+├── package.json          # プロジェクト設定と依存関係
+└── ...
+```
