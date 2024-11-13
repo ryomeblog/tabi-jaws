@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tabi-jaws/static/css/main.e6c13ad2.css",
-    "main.js": "/tabi-jaws/static/js/main.4d214b13.js",
+    "main.js": "/tabi-jaws/static/js/main.123b83ea.js",
     "static/js/453.6d029ce1.chunk.js": "/tabi-jaws/static/js/453.6d029ce1.chunk.js",
     "index.html": "/tabi-jaws/index.html",
     "main.e6c13ad2.css.map": "/tabi-jaws/static/css/main.e6c13ad2.css.map",
-    "main.4d214b13.js.map": "/tabi-jaws/static/js/main.4d214b13.js.map",
+    "main.123b83ea.js.map": "/tabi-jaws/static/js/main.123b83ea.js.map",
     "453.6d029ce1.chunk.js.map": "/tabi-jaws/static/js/453.6d029ce1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.4d214b13.js"
+    "static/js/main.123b83ea.js"
   ]
 }
