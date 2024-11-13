@@ -19,7 +19,6 @@ function DecompressTextForm() {
       return decodedText;
     } catch (error) {
       setError(true); // 解凍エラーが発生した場合はエラーステートを設定
-      console.error("解凍エラー:", error);
       return null;
     }
   };
@@ -31,17 +30,13 @@ function DecompressTextForm() {
     if (decompressedText) {
       try {
         const travelData = JSON.parse(decompressedText); // Convert the decompressed string to JSON
-        console.log("Decompressed Travel Data:", travelData);
 
         // Navigate to the /travel route and pass the travelData as state
         navigate("/tabi-jaws/travel", { state: travelData });
 
       } catch (error) {
         setError(true); // Set error if JSON parsing fails
-        console.error("JSON Parse Error:", error);
       }
-    } else {
-      console.log("通常のテキスト:", text);
     }
   };
 

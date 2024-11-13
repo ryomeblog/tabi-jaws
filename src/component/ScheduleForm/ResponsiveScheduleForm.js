@@ -40,7 +40,6 @@ function ResponsiveScheduleForm({ travelData, setTravelData }) {
   const handleLinkChange = (dateIndex, scheduleIndex, linkIndex, value) => {
     const newData = { ...travelData };
     newData.scheduleData[dateIndex].schedules[scheduleIndex].links[linkIndex] = value;
-    console.log("newData:", newData)
     setTravelData(newData);
   };
 

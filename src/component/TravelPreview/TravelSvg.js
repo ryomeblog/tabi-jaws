@@ -236,7 +236,7 @@ function TravelSvg({ schedules, date }) {
             )}
 
             {/* URL Link */}
-            {item.links && (
+            {item.links && item.links.length > 0 && (
               <>
                 <rect
                   x="100"

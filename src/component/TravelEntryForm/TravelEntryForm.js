@@ -73,8 +73,28 @@ function TravelEntryForm({ travelData, setTravelData }) {
     const compressedData = compressText(textData);
 
     // Create a Blob and save the file
-    const blob = new Blob([compressedData], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob([compressedData], {
+      type: "text/plain;charset=utf-8",
+    });
     saveAs(blob, "travelData.txt");
+  };
+
+  const handleGeneratePreviewUrl = async () => {
+    try {
+      // travelDataをJSON文字列に変換して圧縮
+      const compressedData = compressText(JSON.stringify(travelData));
+
+      // プレビューURLを生成
+      const previewUrl = `${
+        window.location.origin
+      }/tabi-jaws/preview?travelData=${encodeURIComponent(compressedData)}`;
+
+      // プレビューURLをクリップボードにコピー
+      await navigator.clipboard.writeText(previewUrl);
+      alert("プレビューURLがクリップボードにコピーされました！");
+    } catch (error) {
+      console.error("URLの生成中にエラーが発生しました:", error);
+    }
   };
 
   return (
@@ -100,6 +120,7 @@ function TravelEntryForm({ travelData, setTravelData }) {
           旅行情報
         </Typography>
 
+        {/* Input fields for travel details */}
         <TextField
           label="タイトル"
           value={title}
@@ -193,6 +214,20 @@ function TravelEntryForm({ travelData, setTravelData }) {
           onClick={handleExport}
         >
           データをエクスポート
+        </Button>
+
+        {/* Generate Preview URL Button */}
+        <Button
+          variant="outlined"
+          fullWidth
+          sx={{
+            mt: 2,
+            color: "#f46b45",
+            ":hover": { backgroundColor: "#f46b45", color: "#fff" },
+          }}
+          onClick={handleGeneratePreviewUrl}
+        >
+          プレビューURLを発行
         </Button>
       </Box>
     </LocalizationProvider>

@@ -23,7 +23,7 @@ function NotFound() {
           このページは存在しません。
         </Typography>
         ホーム画面に戻る場合は
-        <Link href="/" underline="hover" sx={{ color: '#fff', fontWeight: 'bold' }}>
+        <Link href="/tabi-jaws" underline="hover" sx={{ color: '#fff', fontWeight: 'bold' }}>
           こちら
         </Link>
       </Box>

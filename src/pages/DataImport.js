@@ -13,7 +13,6 @@ function DataImport() {
 
   // 戻るボタンをクリックしたときの処理
   const handleBackClick = () => {
-    console.log("戻るボタンがクリックされました");
     // React Routerを使って'/'に遷移
     navigate("/tabi-jaws");
   };
