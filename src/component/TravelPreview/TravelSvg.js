@@ -1,6 +1,5 @@
 // TravelPreview.js
 import React from "react";
-// import { Box, Typography } from "@mui/material";
 
 function TravelSvg({ schedules, date }) {
   const splitText = (link, maxHalfWidth) => {
@@ -10,6 +9,7 @@ function TravelSvg({ schedules, date }) {
 
     for (let char of link) {
       // 全角文字か半角文字かを判定（正規表現により全角文字をチェック）
+      // eslint-disable-next-line no-control-regex
       const regex = /[^\x00-\xff]/;
       const charWidth = char.match(regex) ? 2 : 1;
       if (currentWidth + charWidth > maxHalfWidth) {

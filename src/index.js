@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import DataImport from './pages/DataImport';
 import TravelPlan from './pages/TravelPlan';
+import TravelPreviewPage from './pages/TravelPreviewPage';
 import NotFound from './pages/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,9 +14,10 @@ root.render(
   <React.StrictMode>
   <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/data" element={<DataImport />} />
-      <Route path="/travel" element={<TravelPlan />} />
+      <Route path="/tabi-jaws" element={<Home />} />
+      <Route path="/tabi-jaws/data" element={<DataImport />} />
+      <Route path="/tabi-jaws/travel" element={<TravelPlan />} />
+      <Route path="/tabi-jaws/preview" element={<TravelPreviewPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Router>
