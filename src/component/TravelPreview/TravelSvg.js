@@ -47,6 +47,7 @@ function TravelSvg({ schedules, date }) {
     svgMaxLine:
       82 +
       5 + // 予備線
+      10 + // 重なり分
       totalBudget * 15 +
       schedules.length * 92 +
       totalDescriptions * 15 +
@@ -59,6 +60,7 @@ function TravelSvg({ schedules, date }) {
     <svg
       width="100%"
       height={
+        10 + // 重なり分
         svgBase.fastCircleSize * 2 +
         schedules.length * 92 +
         totalBudget * 15 +

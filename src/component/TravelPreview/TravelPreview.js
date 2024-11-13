@@ -6,6 +6,20 @@ import TravelSvg from "./TravelSvg";
 import TravelEndSvg from "./TravelEndSvg";
 
 function TravelPreview({ travelData }) {
+  const calculateTotalBudget = (travelData) => {
+    let totalBudget = 0;
+  
+    travelData.scheduleData.forEach(day => {
+      day.schedules.forEach(schedule => {
+        if (schedule.budget) {
+          totalBudget += schedule.budget;
+        }
+      });
+    });
+  
+    return totalBudget;
+  };
+
   return (
     <Box
       sx={{
@@ -52,7 +66,7 @@ function TravelPreview({ travelData }) {
                 variant="h5"
                 sx={{ marginBottom: "10px", fontWeight: "bold" }}
               >
-                {travelData.overview}
+                {travelData.title}
               </Typography>
 
               {/* 予算のカード表示 */}
@@ -82,10 +96,24 @@ function TravelPreview({ travelData }) {
                     {new Intl.NumberFormat("ja-JP", {
                       style: "currency",
                       currency: "JPY",
-                    }).format(travelData.budget)}
+                    }).format(calculateTotalBudget(travelData))}
                   </Typography>
                 </CardContent>
               </Card>
+
+              {/* 期間 表示 */}
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
+                spacing={1}
+                sx={{ marginBottom: "10px" }}
+              >
+                <Chip
+                  label={`${travelData.startDate} ～ ${travelData.endDate}`}
+                  color="success"
+                />
+              </Stack>
 
               {/* 出発地 -> 目的地 表示 */}
               <Stack
@@ -96,18 +124,18 @@ function TravelPreview({ travelData }) {
                 sx={{ marginBottom: "10px" }}
               >
                 <Chip
-                  label={`出発地: ${travelData.departure}`}
+                  label={`${travelData.departure}`}
                   color="primary"
                 />
                 <ArrowForward color="action" />
                 <Chip
-                  label={`目的地: ${travelData.destination}`}
+                  label={`${travelData.destination}`}
                   color="secondary"
                 />
               </Stack>
 
               {/* メモがある場合の表示 (カード形式) */}
-              {travelData.memo && (
+              {travelData.notes && (
                 <Card
                   sx={{
                     marginTop: "10px",
@@ -133,7 +161,7 @@ function TravelPreview({ travelData }) {
                         textAlign: "left",
                       }}
                     >
-                      {travelData.memo}
+                      {travelData.notes}
                     </Typography>
                   </CardContent>
                 </Card>

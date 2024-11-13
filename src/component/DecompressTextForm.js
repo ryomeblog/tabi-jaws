@@ -1,11 +1,13 @@
 // DecompressTextForm.js
 import React, { useState } from 'react';
 import { Box, TextField, Button, Typography, Alert } from '@mui/material';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
 import pako from 'pako';
 
 function DecompressTextForm() {
   const [text, setText] = useState('');
   const [error, setError] = useState(false); // エラーステートを追加
+  const navigate = useNavigate();  // hook to handle navigation
 
   // Base64を解凍して元のテキストに戻す関数
   const decompressText = (base64String) => {
@@ -27,7 +29,17 @@ function DecompressTextForm() {
     const decompressedText = decompressText(text);
 
     if (decompressedText) {
-      console.log("Decompressed Text:", decompressedText);
+      try {
+        const travelData = JSON.parse(decompressedText); // Convert the decompressed string to JSON
+        console.log("Decompressed Travel Data:", travelData);
+
+        // Navigate to the /travel route and pass the travelData as state
+        navigate("/travel", { state: travelData });
+
+      } catch (error) {
+        setError(true); // Set error if JSON parsing fails
+        console.error("JSON Parse Error:", error);
+      }
     } else {
       console.log("通常のテキスト:", text);
     }
@@ -102,7 +114,7 @@ function DecompressTextForm() {
           },
         }}
       >
-        送信
+        インポートする
       </Button>
     </Box>
   );
