@@ -87,7 +87,7 @@ function TravelEntryForm({ travelData, setTravelData }) {
       // プレビューURLを生成
       const previewUrl = `${
         window.location.origin
-      }/tabi-jaws/preview?travelData=${encodeURIComponent(compressedData)}`;
+      }/tabi-jaws?travelData=${encodeURIComponent(compressedData)}`;
 
       // プレビューURLをクリップボードにコピー
       await navigator.clipboard.writeText(previewUrl);

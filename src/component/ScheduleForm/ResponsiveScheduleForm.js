@@ -156,7 +156,7 @@ function ResponsiveScheduleForm({ travelData, setTravelData }) {
                 type="number"
                 value={schedule.budget}
                 onChange={(e) =>
-                  handleInputChange(dateIndex, scheduleIndex, "budget", e.target.value)
+                  handleInputChange(dateIndex, scheduleIndex, "budget", Number(e.target.value))
                 }
               />
 

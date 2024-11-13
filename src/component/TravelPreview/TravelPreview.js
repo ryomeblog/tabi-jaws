@@ -1,7 +1,6 @@
-// TravelPreview.js
 import React from "react";
-import { Box, Typography, Chip, Stack, Card, CardContent } from "@mui/material"; // 必要なMUIコンポーネントをインポート
-import { ArrowForward } from "@mui/icons-material"; // 矢印アイコンをインポート
+import { Box, Typography, Chip, Stack, Card, CardContent } from "@mui/material";
+import { ArrowForward } from "@mui/icons-material";
 import TravelSvg from "./TravelSvg";
 import TravelEndSvg from "./TravelEndSvg";
 
@@ -12,7 +11,7 @@ function TravelPreview({ travelData }) {
     travelData.scheduleData.forEach(day => {
       day.schedules.forEach(schedule => {
         if (schedule.budget) {
-          totalBudget += schedule.budget;
+          totalBudget += Number(schedule.budget);
         }
       });
     });
@@ -31,19 +30,20 @@ function TravelPreview({ travelData }) {
         borderRadius: "10px",
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
         width: "100%",
+        maxWidth: "100vw", // 横幅を制限
+        boxSizing: "border-box", // padding を含めて幅を計算
         maxHeight: "calc(100vh - 160px)",
         overflowY: "auto",
       }}
     >
       {/* イベントと移動のアイテム表示 */}
-      <Box sx={{ position: "relative", width: "100%" }}>
+      <Box sx={{ width: "100%", overflowX: "hidden" }}> {/* 横スクロールを防ぐ */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             marginBottom: "20px",
-            position: "relative",
           }}
         >
           <Box
@@ -56,10 +56,12 @@ function TravelPreview({ travelData }) {
             <Box
               sx={{
                 marginBottom: "20px",
-                backgroundColor: "gray", // 背景色はgrayのまま
+                backgroundColor: "gray",
                 borderRadius: "8px",
                 padding: "15px",
                 textAlign: "center",
+                width: "100%",
+                boxSizing: "border-box",
               }}
             >
               <Typography
@@ -139,7 +141,7 @@ function TravelPreview({ travelData }) {
                 <Card
                   sx={{
                     marginTop: "10px",
-                    backgroundColor: "#f1f1f1", // メモのカードに背景色を設定
+                    backgroundColor: "#f1f1f1",
                     borderRadius: "8px",
                     padding: "10px",
                   }}
