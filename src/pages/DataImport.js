@@ -15,7 +15,7 @@ function DataImport() {
   const handleBackClick = () => {
     console.log("戻るボタンがクリックされました");
     // React Routerを使って'/'に遷移
-    navigate("/");
+    navigate("/tabi-jaws");
   };
 
   return (

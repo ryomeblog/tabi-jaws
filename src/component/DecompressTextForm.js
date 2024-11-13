@@ -34,7 +34,7 @@ function DecompressTextForm() {
         console.log("Decompressed Travel Data:", travelData);
 
         // Navigate to the /travel route and pass the travelData as state
-        navigate("/travel", { state: travelData });
+        navigate("/tabi-jaws/travel", { state: travelData });
 
       } catch (error) {
         setError(true); // Set error if JSON parsing fails

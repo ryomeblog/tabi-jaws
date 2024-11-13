@@ -28,7 +28,7 @@ function TravelPreviewPage() {
 
         if (!travelDataParam) {
             // If no query param, navigate to home page
-            navigate('/');
+            navigate("/tabi-jaws");
             return;
         }
 
@@ -43,7 +43,7 @@ function TravelPreviewPage() {
             setTravelData(parsedTravelData);
         } catch (error) {
             // If decompression or JSON parsing fails, navigate to home page
-            navigate('/');
+            navigate("/tabi-jaws");
         }
     }, [location, navigate]);
 

@@ -33,7 +33,7 @@ function TravelForm() {
     };
 
     // formDataを保持したまま別のページに遷移
-    navigate("/travel", { state: travelData });
+    navigate("/tabi-jaws/travel", { state: travelData });
   };
 
   const generateScheduleData = (start, end) => {

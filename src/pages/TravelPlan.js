@@ -20,7 +20,7 @@ function TravelPlan() {
 
   // 戻るボタンの処理
   const handleBackClick = () => {
-    navigate("/");
+    navigate("/tabi-jaws");
   };
 
   return (
