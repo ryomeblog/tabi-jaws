@@ -1,7 +1,7 @@
 // Home.js
 import React, { useEffect } from "react";
 import TravelForm from "../component/TravelForm";
-import { Box, Typography, useMediaQuery, Link } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate, useLocation } from "react-router-dom"; // useNavigate, useLocationを追加
 import pako from "pako"; // pakoライブラリのインポート
@@ -70,13 +70,13 @@ function Home() {
           思い出に残る旅の計画を始めましょう！
         </Typography>
         既にデータをお持ちの方は
-        <Link
-          href="/tabi-jaws/data"
-          underline="hover"
-          sx={{ color: "#fff", fontWeight: "bold" }}
+        <Typography
+          component="span"
+          onClick={() => navigate("/tabi-jaws/data")}
+          sx={{ color: "#fff", fontWeight: "bold", cursor: "pointer" }}
         >
           こちら
-        </Link>
+        </Typography>
       </Box>
       <TravelForm />
     </Box>

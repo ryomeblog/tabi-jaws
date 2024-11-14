@@ -1,7 +1,9 @@
 // NotFound.js
-import { Box, Typography, Link } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // useNavigateを追加
 
 function NotFound() {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -23,9 +25,14 @@ function NotFound() {
           このページは存在しません。
         </Typography>
         ホーム画面に戻る場合は
-        <Link href="/tabi-jaws" underline="hover" sx={{ color: '#fff', fontWeight: 'bold' }}>
+        
+        <Typography
+          component="span"
+          onClick={() => navigate("/tabi-jaws/data")}
+          sx={{ color: "#fff", fontWeight: "bold", cursor: "pointer" }}
+        >
           こちら
-        </Link>
+        </Typography>
       </Box>
     </Box>
   );
